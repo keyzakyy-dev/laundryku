@@ -1,5 +1,7 @@
 # 🧺 Sistem Pengelolaan Laundry
 
+![Dashboard Laundry](http://sikeyza.web.id/img/dashboard.jpg)
+
 Sistem Pengelolaan Laundry adalah aplikasi web sederhana berbasis **PHP Native** dan **MySQL** yang digunakan untuk mengelola data pelanggan, layanan laundry, pesanan, serta status pengerjaan pesanan.
 
 Project ini dibuat sebagai sistem dashboard sederhana untuk membantu proses pencatatan dan pengelolaan transaksi laundry agar lebih rapi, cepat, dan mudah digunakan.
@@ -30,33 +32,24 @@ Project ini dibuat sebagai sistem dashboard sederhana untuk membantu proses penc
 
 ---
 
-## 📁 Struktur Folder
+## 📸 Tampilan Daftar Pelanggan
 
-```txt
-sistem-pengelolaan-laundry/
-│
-├── index.php
-├── daftar_pelanggan.php
-├── daftar_layanan.php
-├── daftar_pesanan.php
-├── tambah_pelanggan.php
-├── tambah_pesanan.php
-├── edit_status_pesanan.php
-├── hapus_pelanggan.php
-│
-├── koneksi.example.php
-│
-├── css/
-│   └── style.css
-│
-├── img/
-│   ├── zaky.png
-│   ├── rahmat.png
-│   ├── azhari.png
-│   └── hilma.png
-│
-├── database/
-│   └── sistem_pengelolaan_laundry.sql
-│
-├── README.md
-└── .gitignore
+![Dashboard Laundry](http://sikeyza.web.id/img/daftar_pelanggan.jpg)
+
+## 📸 Tampilan Tambah Pelanggan
+
+![Dashboard Laundry](http://sikeyza.web.id/img/tambah_pelanggan.jpg)
+
+## 📸 Tampilan Daftar Pesanan
+
+![Dashboard Laundry](http://sikeyza.web.id/img/daftar_pesanan.jpg)
+
+## 📸 Tampilan Edit Status Pesanan
+
+![Dashboard Laundry](http://sikeyza.web.id/img/edit_status_pesanan.jpg)
+
+# 📸 Tampilan Tambah Pesanan
+
+![Dashboard Laundry](http://sikeyza.web.id/img/tambah_pesanan.jpg)
+
+
