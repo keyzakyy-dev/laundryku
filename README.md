@@ -48,7 +48,7 @@ Project ini dibuat sebagai sistem dashboard sederhana untuk membantu proses penc
 
 ![Dashboard Laundry](http://sikeyza.web.id/img/edit_status_pesanan.jpg)
 
-# 📸 Tampilan Tambah Pesanan
+## 📸 Tampilan Tambah Pesanan
 
 ![Dashboard Laundry](http://sikeyza.web.id/img/tambah_pesanan.jpg)
 
