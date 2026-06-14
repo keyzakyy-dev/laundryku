@@ -1,30 +1,62 @@
-# Sistem Pengelolaan Laundry
+# 🧺 Sistem Pengelolaan Laundry
 
-Project web sederhana untuk mengelola data pelanggan, layanan, pesanan, dan status pesanan laundry.
+Sistem Pengelolaan Laundry adalah aplikasi web sederhana berbasis **PHP Native** dan **MySQL** yang digunakan untuk mengelola data pelanggan, layanan laundry, pesanan, serta status pengerjaan pesanan.
 
-## Teknologi
-- PHP
-- MySQL
-- CSS Custom
+Project ini dibuat sebagai sistem dashboard sederhana untuk membantu proses pencatatan dan pengelolaan transaksi laundry agar lebih rapi, cepat, dan mudah digunakan.
 
-## Fitur
-- Menampilkan data pelanggan
-- Menampilkan data layanan
-- Menampilkan data pesanan
-- Tambah pelanggan
-- Tambah pesanan
-- Edit status pesanan
-- Hapus pelanggan
+---
 
-## Instalasi
-1. Clone repository ini
-2. Import file SQL dari folder `database`
-3. Copy `koneksi.example.php` menjadi `koneksi.php`
-4. Sesuaikan username, password, dan nama database
-5. Jalankan project di XAMPP/Laragon
+## ✨ Fitur Utama
 
-## Struktur Folder
-- `css/` untuk file styling
-- `img/` untuk gambar tim
-- `database/` untuk file SQL
-- file `.php` utama berada di root project
+- 👥 Mengelola data pelanggan
+- 🧼 Menampilkan daftar layanan laundry
+- 📦 Mengelola data pesanan laundry
+- 🔄 Mengubah status pesanan
+- 🗑️ Menghapus data pelanggan
+- 📊 Menampilkan riwayat pesanan terbaru
+- ⭐ Menampilkan layanan yang sering dipilih
+- 🎨 Tampilan modern dengan CSS custom bergaya clean dashboard
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+- **PHP Native**
+- **MySQL**
+- **HTML**
+- **CSS**
+- **SweetAlert2**
+- **XAMPP / Laragon**
+
+---
+
+## 📁 Struktur Folder
+
+```txt
+sistem-pengelolaan-laundry/
+│
+├── index.php
+├── daftar_pelanggan.php
+├── daftar_layanan.php
+├── daftar_pesanan.php
+├── tambah_pelanggan.php
+├── tambah_pesanan.php
+├── edit_status_pesanan.php
+├── hapus_pelanggan.php
+│
+├── koneksi.example.php
+│
+├── css/
+│   └── style.css
+│
+├── img/
+│   ├── zaky.png
+│   ├── rahmat.png
+│   ├── azhari.png
+│   └── hilma.png
+│
+├── database/
+│   └── sistem_pengelolaan_laundry.sql
+│
+├── README.md
+└── .gitignore
