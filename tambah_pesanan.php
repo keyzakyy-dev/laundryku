@@ -1,8 +1,28 @@
 <?php
 include "koneksi.php";
 
+function buatId($koneksi, $tabel, $kolom, $prefix)
+{
+    $query = mysqli_query($koneksi, "
+        SELECT MAX($kolom) AS id_terakhir FROM $tabel
+    ");
+
+    $data = mysqli_fetch_array($query);
+    $id_terakhir = $data['id_terakhir'];
+
+    if ($id_terakhir == null) {
+        $nomor = 1;
+    } else {
+        $nomor = (int) substr($id_terakhir, 2) + 1;
+    }
+
+    return $prefix . str_pad($nomor, 3, '0', STR_PAD_LEFT);
+}
+
 if (isset($_POST['simpan'])) {
 
+    $id_pesanan      = buatId($koneksi, "pesanan", "id_pesanan", "PS");
+    $id_detail       = buatId($koneksi, "detail_pesanan", "id_detail", "DT");
     $id_pesanan      = $_POST['id_pesanan'];
     $id_detail       = $_POST['id_detail'];
     $id_pelanggan    = $_POST['id_pelanggan'];
