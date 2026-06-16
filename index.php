@@ -1,5 +1,9 @@
 <?php
 include "koneksi.php";
+
+// Query untuk mengambil waktu server
+$waktu_query = mysqli_query($koneksi, "SELECT NOW() as waktu_sekarang, CURDATE() as tanggal_hari_ini, CURTIME() as jam_sekarang");
+$waktu_data  = mysqli_fetch_array($waktu_query);
 ?>
 
 <!DOCTYPE html>
@@ -10,13 +14,17 @@ include "koneksi.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Pengelolaan Laundry</title>
 </head>
-
 <body>
 
 <header class="hero">
     <h1>Sistem Pengelolaan Laundry</h1>
     <p>Dashboard riwayat pesanan, layanan favorit, dan data tim pengelola</p>
-
+    
+    <!-- TAMPILAN WAKTU -->
+    <div style="margin-top: 12px; font-size: 14px; color: var(--muted-foreground);">
+        🕒 Waktu Server: <strong><?php echo $waktu_data['waktu_sekarang']; ?></strong>
+    </div>
+    
     <div class="container-button">
         <a class="buttonx" href="daftar_pelanggan.php">Daftar Pelanggan</a>
         <a class="buttonx" href="daftar_layanan.php">Daftar Layanan</a>
@@ -54,6 +62,7 @@ include "koneksi.php";
                 JOIN pesanan ps ON dp.id_pesanan = ps.id_pesanan
                 JOIN pelanggan pl ON ps.id_pelanggan = pl.id_pelanggan
                 JOIN layanan ly ON dp.id_layanan = ly.id_layanan
+                ORDER BY ps.tanggal_pesanan DESC
                 LIMIT 5
             ");
 
@@ -82,35 +91,35 @@ include "koneksi.php";
     <h2 class="judul">Layanan Sering Dipilih</h2>
     <p class="deskripsi">Menampilkan jenis layanan laundry yang paling sering digunakan pelanggan.</p>
 
-    <table>
-        <tr>
-            <th>Layanan</th>
-            <th>Jumlah Dipilih</th>
-        </tr>
+    <div class="content">
+        <table class="table-layanan-favorit">
+            <tr>
+                <th>Layanan</th>
+                <th>Jumlah Dipilih</th>
+            </tr>
 
-        <?php
-        $query = mysqli_query($koneksi, "
-            SELECT
-                l.nama_layanan,
-                COUNT(dp.id_layanan) AS jumlah_dipilih
-            FROM detail_pesanan dp
-            JOIN pesanan p ON dp.id_pesanan = p.id_pesanan
-            JOIN pelanggan pl ON p.id_pelanggan = pl.id_pelanggan
-            JOIN layanan l ON dp.id_layanan = l.id_layanan
-            GROUP BY l.nama_layanan
-            ORDER BY jumlah_dipilih DESC
-        ");
+            <?php
+            $query = mysqli_query($koneksi, "
+                SELECT
+                    l.nama_layanan,
+                    COUNT(dp.id_layanan) AS jumlah_dipilih
+                FROM detail_pesanan dp
+                JOIN layanan l ON dp.id_layanan = l.id_layanan
+                GROUP BY l.nama_layanan
+                ORDER BY jumlah_dipilih DESC
+            ");
 
-        while ($row = mysqli_fetch_array($query)) {
-        ?>
+            while ($row = mysqli_fetch_array($query)) {
+            ?>
 
-        <tr>
-            <td><?php echo $row['nama_layanan']; ?></td>
-            <td><?php echo $row['jumlah_dipilih']; ?> kali</td>
-        </tr>
+            <tr>
+                <td><?php echo $row['nama_layanan']; ?></td>
+                <td><?php echo $row['jumlah_dipilih']; ?> kali</td>
+            </tr>
 
-        <?php } ?>
-    </table>
+            <?php } ?>
+        </table>
+    </div>
 </div>
 
 <div class="container">
